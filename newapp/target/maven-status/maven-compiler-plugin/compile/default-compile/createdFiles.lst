@@ -1,0 +1,8 @@
+com\demo\newapp\dao\UserRepo.class
+com\demo\newapp\Entity\User.class
+com\demo\newapp\advice\ApplicationExceptionHandler.class
+com\demo\newapp\Service\userServiceImpl.class
+com\demo\newapp\NewApplication.class
+com\demo\newapp\Service\Userservice.class
+com\demo\newapp\dto\UserRequest.class
+com\demo\newapp\controller\newAppController.class
