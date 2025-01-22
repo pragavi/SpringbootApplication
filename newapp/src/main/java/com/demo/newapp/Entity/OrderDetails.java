@@ -25,6 +25,8 @@ public class OrderDetails {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User userOrderDetail;
+    @OneToOne(mappedBy = "orderPayment", cascade = CascadeType.ALL)
+    private PaymentDetails paymentDetails;
 
     public OrderDetails() {
     }
@@ -34,6 +36,12 @@ public class OrderDetails {
         this.total = total;
         this.status = status;
         this.orderTime = orderTime;
+    }
+
+    public OrderDetails(List<OrderItemDetails> orderItemDetailsList, User userOrderDetail, PaymentDetails paymentDetails) {
+        this.orderItemDetailsList = orderItemDetailsList;
+        this.userOrderDetail = userOrderDetail;
+        this.paymentDetails = paymentDetails;
     }
 
     public int getOrderId() {
@@ -67,6 +75,31 @@ public class OrderDetails {
     public void setOrderTime(Date orderTime) {
         this.orderTime = orderTime;
     }
+
+    public List<OrderItemDetails> getOrderItemDetailsList() {
+        return orderItemDetailsList;
+    }
+
+    public void setOrderItemDetailsList(List<OrderItemDetails> orderItemDetailsList) {
+        this.orderItemDetailsList = orderItemDetailsList;
+    }
+
+    public User getUserOrderDetail() {
+        return userOrderDetail;
+    }
+
+    public void setUserOrderDetail(User userOrderDetail) {
+        this.userOrderDetail = userOrderDetail;
+    }
+
+    public PaymentDetails getPaymentDetails() {
+        return paymentDetails;
+    }
+
+    public void setPaymentDetails(PaymentDetails paymentDetails) {
+        this.paymentDetails = paymentDetails;
+    }
+
 
     @Override
     public String toString() {

@@ -1,6 +1,7 @@
 package com.demo.newapp.controller;
 
 import com.demo.newapp.Entity.User;
+import com.demo.newapp.Entity.UserAddress;
 import com.demo.newapp.Service.Userservice;
 import com.demo.newapp.dto.UserRequest;
 import jakarta.validation.Valid;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/apiUser")
+@RequestMapping("/api/user")
 public class UserController {
     @Autowired
     Userservice userservice;
@@ -37,6 +38,13 @@ public class UserController {
     @DeleteMapping("user/delete/{id}")
     public String deleteUser(@PathVariable int id){
         return userservice.deleteUser(id);
+    }
+
+
+
+    @GetMapping("useraddress/{id}")
+    public List<UserAddress> getAddressById(@PathVariable int id){
+        return userservice.getAddressById(id);
     }
 
 }

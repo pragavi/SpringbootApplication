@@ -1,6 +1,7 @@
 package com.demo.newapp.Service;
 
 import com.demo.newapp.Entity.User;
+import com.demo.newapp.Entity.UserAddress;
 import com.demo.newapp.dao.UserRepo;
 import com.demo.newapp.dto.UserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,12 @@ public class UserServiceImpl implements Userservice {
         User deleteuser = repo.findById(id).get();
         repo.delete(deleteuser);
         return "deleted successfully";
+    }
+
+    @Override
+    public List<UserAddress> getAddressById(int id) {
+        User user= repo.findById(id).get();
+        return user.getAddresses();
     }
 
 
